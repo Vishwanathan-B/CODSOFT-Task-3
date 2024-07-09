@@ -1,0 +1,52 @@
+/* C++ INTERNSHIP MY TASK-3*/
+
+
+
+#include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+#include <algorithm>
+
+class Book {
+public:
+    std::string title;
+    std::string author;
+    std::string isbn;
+    bool available;
+   
+};
+
+class Borrower {
+public:
+    std::string name;
+    std::vector<Book*> borrowedBooks;
+    
+};
+
+class Fine {
+public:
+    double dailyFineRate;
+    double maxFine;
+
+    double calculateFine(const Book& book, const std::string& returnDate);
+};
+
+class LibraryManagementSystem {
+public:
+    std::vector<Book> books;
+    std::map<std::string, Borrower> borrowers;
+    Fine fine;
+
+    void searchBooks(const std::string& criteria, const std::string& value);
+    void checkoutBook(const std::string& borrowerName, const std::string& bookISBN);
+    void returnBook(const std::string& borrowerName, const std::string& bookISBN);
+    void payFine(const std::string& borrowerName);
+    
+};
+
+int main() {
+    LibraryManagementSystem lms;
+    
+    return 0;
+}
